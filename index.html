@@ -2,87 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/bard.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Generate recipes just by uploading images! Built with Gemini Vision Pro."
-    />
-    <!-- og -->
-    <meta prefix="og: http://ogp.me/ns#" content="" />
-
-    <meta property="og:url" content="https://recipe-ai-tut.netlify.app/" />
-    <meta property="og:title" content="Recipe AI" />
-    <meta
-      property="og:description"
-      content="Generate recipes just by uploading images! Built with Gemini Vision Pro."
-    />
-    <meta
-      property="og:image"
-      content="https://res.cloudinary.com/dptvznhc4/image/upload/v1714410369/kbn9fvoxhvfucavbbevr.jpg"
-    />
-    <meta property="og:image:width" content="1280" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@pimiracledev" />
-    <meta name="twitter:title" content="Recipe AI" />
-    <meta
-      name="twitter:description"
-      content="Generate recipes just by uploading images! Built with Gemini Vision Pro."
-    />
-    <meta
-      name="twitter:image"
-      content="https://res.cloudinary.com/dptvznhc4/image/upload/v1714410369/kbn9fvoxhvfucavbbevr.jpg"
-    />
-
-    <meta
-      name="linkedin:share:url"
-      content="https://recipe-ai-tut.netlify.app/"
-    />
-    <meta name="linkedin:share:title" content="Recipe AI" />
-    <meta
-      name="linkedin:share:description"
-      content="Generate recipes just by uploading images! Built with Gemini Vision Pro."
-    />
-    <meta name="linkedin:share:source" content="Recipe AI" />
-    <meta
-      name="linkedin:share:image"
-      content="https://res.cloudinary.com/dptvznhc4/image/upload/v1714410369/kbn9fvoxhvfucavbbevr.jpg"
-    />
-
     <title>Recipe AI</title>
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main class="w-11/12 mx-auto max-w-2xl pt-[3vh] pb-10">
-      <a
-        href="/"
-        class="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#2F0EFD] to-[#CE30D1]"
-      >
-        Recipe AI
-      </a>
-      <form class="py-6">
-        <h2>Upload Image</h2>
-        <input type="file" accept="image/*" class="my-2 text-black" />
-        <button
-          class="bg-clip-text text-transparent bg-gradient-to-l from-[#2F0EFD] to-[#CE30D1]"
-        >
-          Get Recipes
-        </button>
-      </form>
-      <div
-        class="loader hidden animate-spin h-10 w-10 border-2 border-l-[#ce30d1] rounded-full"
-      ></div>
-      <div id="result"></div>
-    </main>
-    <script type="module" src="/main.js"></script>
+    <form>
+      <input type="file" />
+      <button>Get Recipe</button>
+    </form>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>

@@ -1,13 +1,12 @@
-import prompt from "./prompt";
+import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
+import prompt from "./prompt.js";
 
-import { GoogleGenerativeAI } from "@google/generative-ai";
-
-const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
+const genAI = new GoogleGenerativeAI("<your-api-key-here>");
 
 const formEl = document.querySelector("form");
 const fileInputEl = document.querySelector("input[type=file]");
-const loader = document.querySelector(".loader");
 
+// submit action
 formEl.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -15,11 +14,9 @@ formEl.addEventListener("submit", async (e) => {
   if (!fileInputEl.files[0]) {
     return;
   }
-
-  loader.classList.remove("hidden");
-
-  const text = await run();
-  displayResult(text);
+  // response
+  const data = await run();
+  console.log(data);
 });
 
 // Converts a File object to a GoogleGenerativeAI.Part object.
@@ -45,46 +42,4 @@ async function run() {
   const response = await result.response;
   const text = response.text();
   return text;
-}
-
-function displayResult(text) {
-  loader.classList.add("hidden");
-
-  const obj = JSON.parse(text);
-  const result = document.getElementById("result");
-  if (obj.error) {
-    result.innerHTML = `${obj.error}`;
-  } else {
-    const { name, ingredients, steps, healthBenefits } = obj;
-    result.innerHTML = `
-    <h2>${name}</h2>
-    <h4>Ingredients:</h4>
-    <ol>
-        ${ingredients
-          .map((text) => {
-            return `<li>${text}</li>`;
-          })
-          .join(" ")}
-    </ol>
-    <h4>Steps:</h4>
-     <ol>
-        ${steps
-          .map((text) => {
-            return `<li>${text}</li>`;
-          })
-          .join(" ")}
-    </ol>
-    ${
-      healthBenefits &&
-      `<h4>Health Benefits:</h4>
-        <ol>
-            ${healthBenefits
-              .map((text) => {
-                return `<li>${text}</li>`;
-              })
-              .join(" ")}
-        </ol>`
-    }
-    `;
-  }
 }
