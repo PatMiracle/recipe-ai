@@ -1,6 +1,6 @@
 # Recipe AI
 
-Generate recipes just by uploading images! Built with Gemini Vision Pro.
+Generate recipes just by uploading images! Built with Gemini Flash.
 
 ## Prerequisites
 
